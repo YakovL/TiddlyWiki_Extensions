@@ -1,0 +1,7 @@
+|Description|Collection of TiddlyWiki translations|
+|Source     |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/TranslationsCollection.txt|
+|Version    |0.0.0|
+//{{{
+[
+]
+//}}}
