@@ -1,11 +1,12 @@
 |Description|Collection of ~TiddlyWiki translations|
 |Source     |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/TranslationsCollection.txt|
-|Version    |0.0.2|
+|Version    |0.0.3|
 //{{{
 [
   {
     "name": "SpanishTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/es/locale.es.js",
+    "type": "plugin",
     "description": "🇪🇸 Traducción de TiddlyWiki al español, para la versión 2.6.0"
   }
 ]
