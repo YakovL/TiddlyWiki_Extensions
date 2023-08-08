@@ -1,8 +1,14 @@
 |Description|Collection of ~TiddlyWiki translations|
 |Source     |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/TranslationsCollection.txt|
-|Version    |0.0.8|
+|Version    |0.0.9|
 //{{{
 [
+  {
+    "name": "GreekTranslation",
+    "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/el/locale.el.js",
+    "type": "plugin",
+    "description": "🇬🇷 Μετάφραση του TiddlyWiki στα ελληνικά, για την έκδοση 2.2"
+  },
   {
     "name": "SpanishTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/es/locale.es.js",
