@@ -20,6 +20,12 @@
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/id/locale.id.js",
     "type": "plugin",
     "description": "🇮🇩 Terjemah TiddlyWiki ke dalam Bahasa Indonesia, untuk versi 2.3.0"
+  },
+  {
+    "name": "ItalianTranslation",
+    "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/it/locale.it.js",
+    "type": "plugin",
+    "description": "🇮🇹 Traduzione di TiddlyWiki in italiano, per la versione 2.6.0"
   }
 ]
 //}}}
