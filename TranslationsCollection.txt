@@ -1,6 +1,6 @@
 |Description|Collection of ~TiddlyWiki translations|
 |Source     |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/TranslationsCollection.txt|
-|Version    |0.0.7|
+|Version    |0.0.8|
 //{{{
 [
   {
@@ -38,6 +38,12 @@
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/lv/locale.lv.js",
     "type": "plugin",
     "description": "🇱🇻 Tiddlywiki vertimas į lietuvių kalbą 2.2 versijai"
+  },
+  {
+    "name": "DutchTranslation",
+    "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/nl/locale.nl.js",
+    "type": "plugin",
+    "description": "🇳🇱 Vertaling van TiddlyWiki naar het Nederlands, voor versie 2.6.0"
   }
 ]
 //}}}
