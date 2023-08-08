@@ -1,6 +1,6 @@
 |Description|Collection of ~TiddlyWiki translations|
 |Source     |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/TranslationsCollection.txt|
-|Version    |0.0.4|
+|Version    |0.0.5|
 //{{{
 [
   {
@@ -14,6 +14,12 @@
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/fr/locale.fr.js",
     "type": "plugin",
     "description": "🇫🇷 Traduction en français de TiddlyWiki, pour la version 2.2.0"
+  },
+  {
+    "name": "IndonesianTranslation",
+    "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/id/locale.id.js",
+    "type": "plugin",
+    "description": "🇮🇩 Terjemah TiddlyWiki ke dalam Bahasa Indonesia, untuk versi 2.3.0"
   }
 ]
 //}}}
