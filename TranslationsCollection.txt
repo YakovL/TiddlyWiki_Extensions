@@ -1,6 +1,6 @@
 |Description|Collection of ~TiddlyWiki translations|
 |Source     |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/TranslationsCollection.txt|
-|Version    |0.0.6|
+|Version    |0.0.7|
 //{{{
 [
   {
@@ -32,6 +32,12 @@
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/ko/locale.ko.js",
     "type": "plugin",
     "description": "🇰🇷 🇰🇵 버전 2.6.1 에 대한 한국어로 티들리위키 번역"
+  },
+  {
+    "name": "LithuanianTranslation",
+    "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/lv/locale.lv.js",
+    "type": "plugin",
+    "description": "🇱🇻 Tiddlywiki vertimas į lietuvių kalbą 2.2 versijai"
   }
 ]
 //}}}
