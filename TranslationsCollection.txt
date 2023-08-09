@@ -52,10 +52,10 @@
     "description": "🇰🇷 🇰🇵 버전 2.6.1 에 대한 한국어로 TiddlyWiki 번역"
   },
   {
-    "name": "LithuanianTranslation",
+    "name": "LatvianTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/lv/locale.lv.js",
     "type": "plugin",
-    "description": "🇱🇻 Tiddlywiki vertimas į lietuvių kalbą 2.2 versijai"
+    "description": "🇱🇻 TiddlyWiki tulkojums latviešu valodā, versijai 2.2"
   },
   {
     "name": "DutchTranslation",
