@@ -1,6 +1,6 @@
 |Description|Collection of ~TiddlyWiki translations|
 |Source     |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/TranslationsCollection.txt|
-|Version    |0.0.14|
+|Version    |0.0.15|
 //{{{
 [
   {
@@ -80,6 +80,12 @@
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/ru/locale.ru.js",
     "type": "plugin",
     "description": "🇷🇺 Перевод TiddlyWiki на русский, поддерживает версии до 2.6.2 включительно"
+  },
+  {
+    "name": "SwedishTranslation",
+    "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/sv/locale.sv.js",
+    "type": "plugin",
+    "description": "🇸🇪 Översättning av TiddlyWiki till svenska, för version 2.4"
   }
 ]
 //}}}
