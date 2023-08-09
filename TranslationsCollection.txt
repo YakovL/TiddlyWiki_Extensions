@@ -31,7 +31,7 @@
     "name": "FrenchTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/fr/locale.fr.js",
     "type": "plugin",
-    "description": "🇫🇷 Traduction en français de TiddlyWiki, pour la version 2.2.0"
+    "description": "🇫🇷 Traduction français de TiddlyWiki, pour la version 2.2.0"
   },
   {
     "name": "IndonesianTranslation",
