@@ -1,8 +1,14 @@
 |Description|Collection of ~TiddlyWiki translations|
 |Source     |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/TranslationsCollection.txt|
-|Version    |0.0.10|
+|Version    |0.0.11|
 //{{{
 [
+  {
+    "name": "CzechTranslation",
+    "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/cs/locale.cs.js",
+    "type": "plugin",
+    "description": "🇨🇿 Překlad TiddlyWiki do češtiny, pro verzi 2.4.0"
+  },
   {
     "name": "GermanTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/de/locale.de.js",
