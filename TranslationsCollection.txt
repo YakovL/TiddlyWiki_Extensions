@@ -13,7 +13,7 @@
     "name": "GermanTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/de/locale.de.js",
     "type": "plugin",
-    "description": "🇩🇪 Übersetzung von TiddlyWiki ins Deutsche, für Version 2.6.2"
+    "description": "🇩🇪 Übersetzung von TiddlyWiki ins Deutsche, für die Version 2.6.2"
   },
   {
     "name": "GreekTranslation",
