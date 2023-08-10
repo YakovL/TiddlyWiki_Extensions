@@ -1,6 +1,6 @@
 |Description|Collection of ~TiddlyWiki translations|
 |Source     |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/TranslationsCollection.txt|
-|Version    |0.0.16|
+|Version    |0.0.17|
 //{{{
 [
   {
@@ -68,6 +68,12 @@
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/nl/locale.nl.js",
     "type": "plugin",
     "description": "🇳🇱 Vertaling van TiddlyWiki naar het Nederlands, voor versie 2.6.0"
+  },
+  {
+    "name": "PunjabiTranslation",
+    "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/pa/locale.pa.js",
+    "type": "plugin",
+    "description": "🇵🇦🇵🇰 🇮🇳 TiddlyWiki ਵਰਜਨ 2.6.1 ਦਾ ਪੰਜਾਬੀ ਵਿੱਚ ਅਨੁਵਾਦ"
   },
   {
     "name": "PolishTranslation",
