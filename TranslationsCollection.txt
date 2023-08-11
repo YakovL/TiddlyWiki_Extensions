@@ -1,6 +1,6 @@
 |Description|Collection of ~TiddlyWiki translations|
 |Source     |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/TranslationsCollection.txt|
-|Version    |0.0.19|
+|Version    |0.1.20|
 //{{{
 [
   {
@@ -110,6 +110,12 @@
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/zh-Hans/locale.zh-Hans.js",
     "type": "plugin",
     "description": "🇨🇳 将 TiddlyWiki 2.4.1 翻译成简体中文"
+  },
+  {
+    "name": "TraditionalChineseTranslation",
+    "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/zh-Hant/locale.zh-Hant.js",
+    "type": "plugin",
+    "description": "🇨🇳 將 TiddlyWiki 2.4.1 翻譯為繁體中文"
   }
 ]
 //}}}
