@@ -1,127 +1,127 @@
 |Description|Collection of ~TiddlyWiki translations|
 |Source     |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/TranslationsCollection.txt|
-|Version    |0.1.21|
+|Version    |0.2.20|
 //{{{
 [
   {
     "name": "CatalanTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/ca/locale.ca.js",
     "type": "plugin",
-    "description": "🇪🇸 Traducció de la TiddlyWiki al català, per a la versió 2.5.2"
+    "description": "🇪🇸 Traducció de la TiddlyWiki al català"
   },
   {
     "name": "CzechTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/cs/locale.cs.js",
     "type": "plugin",
-    "description": "🇨🇿 Překlad TiddlyWiki do češtiny, pro verzi 2.4.0"
+    "description": "🇨🇿 Překlad TiddlyWiki do češtiny"
   },
   {
     "name": "GermanTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/de/locale.de.js",
     "type": "plugin",
-    "description": "🇩🇪 Übersetzung von TiddlyWiki ins Deutsche, für die Version 2.6.2"
+    "description": "🇩🇪 Übersetzung von TiddlyWiki ins Deutsche"
   },
   {
     "name": "GreekTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/el/locale.el.js",
     "type": "plugin",
-    "description": "🇬🇷 Μετάφραση του TiddlyWiki στα ελληνικά, για την έκδοση 2.2"
+    "description": "🇬🇷 Μετάφραση του TiddlyWiki στα ελληνικά"
   },
   {
     "name": "SpanishTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/es/locale.es.js",
     "type": "plugin",
-    "description": "🇪🇸 Traducción de TiddlyWiki al español, para la versión 2.6.0"
+    "description": "🇪🇸 Traducción de TiddlyWiki al español"
   },
   {
     "name": "FrenchTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/fr/locale.fr.js",
     "type": "plugin",
-    "description": "🇫🇷 Traduction français de TiddlyWiki, pour la version 2.2.0"
+    "description": "🇫🇷 Traduction français de TiddlyWiki"
   },
   {
     "name": "IndonesianTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/id/locale.id.js",
     "type": "plugin",
-    "description": "🇮🇩 Terjemah TiddlyWiki ke dalam Bahasa Indonesia, untuk versi 2.3.0"
+    "description": "🇮🇩 Terjemah TiddlyWiki ke dalam Bahasa Indonesia"
   },
   {
     "name": "ItalianTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/it/locale.it.js",
     "type": "plugin",
-    "description": "🇮🇹 Traduzione di TiddlyWiki in italiano, per la versione 2.6.0"
+    "description": "🇮🇹 Traduzione di TiddlyWiki in italiano"
   },
   {
     "name": "JapaneseTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/ja/locale.ja.js",
     "type": "plugin",
-    "description": "🇯🇵 🇵🇼 TiddlyWikiバージョン2.6.0の日本語の翻訳。"
+    "description": "🇯🇵 🇵🇼 TiddlyWikiの日本語訳"
   },
   {
     "name": "KoreanTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/ko/locale.ko.js",
     "type": "plugin",
-    "description": "🇰🇷 🇰🇵 버전 2.6.1 에 대한 한국어로 TiddlyWiki 번역"
+    "description": "🇰🇷 🇰🇵 TiddlyWiki를 한국어로 번역"
   },
   {
     "name": "LatvianTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/lv/locale.lv.js",
     "type": "plugin",
-    "description": "🇱🇻 TiddlyWiki tulkojums latviešu valodā, versijai 2.2"
+    "description": "🇱🇻 TiddlyWiki tulkojums latviešu valodā"
   },
   {
     "name": "DutchTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/nl/locale.nl.js",
     "type": "plugin",
-    "description": "🇳🇱 Vertaling van TiddlyWiki naar het Nederlands, voor versie 2.6.0"
+    "description": "🇳🇱 Vertaling van TiddlyWiki naar het Nederlands"
   },
   {
     "name": "PunjabiTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/pa/locale.pa.js",
     "type": "plugin",
-    "description": "🇵🇦🇵🇰 🇮🇳 TiddlyWiki ਵਰਜਨ 2.6.1 ਦਾ ਪੰਜਾਬੀ ਵਿੱਚ ਅਨੁਵਾਦ"
+    "description": "🇵🇦🇵🇰 🇮🇳 TiddlyWiki ਦਾ ਪੰਜਾਬੀ ਅਨੁਵਾਦ"
   },
   {
     "name": "PolishTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/pl/locale.pl.js",
     "type": "plugin",
-    "description": "🇵🇱 Tłumaczenie TiddlyWiki na język polski, dla wersji 2.6.0"
+    "description": "🇵🇱 Tłumaczenie TiddlyWiki na język polski"
   },
   {
     "name": "BrazilianPortugueseTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/pt-BR/locale.pt-BR.js",
     "type": "plugin",
-    "description": "🇧🇷 Tradução do TiddlyWiki para o português do Brasil, para a versão 2.6.0"
+    "description": "🇧🇷 Tradução do TiddlyWiki para o português do Brasil"
   },
   {
     "name": "RussianTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/ru/locale.ru.js",
     "type": "plugin",
-    "description": "🇷🇺 Перевод TiddlyWiki на русский, поддерживает версии до 2.6.2 включительно"
+    "description": "🇷🇺 Перевод TiddlyWiki на русский"
   },
   {
     "name": "SwedishTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/sv/locale.sv.js",
     "type": "plugin",
-    "description": "🇸🇪 Översättning av TiddlyWiki till svenska, för version 2.4"
+    "description": "🇸🇪 Översättning av TiddlyWiki till svenska"
   },
   {
     "name": "TurkishTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/tr/locale.tr.js",
     "type": "plugin",
-    "description": "🇹🇷 TiddlyWiki çeviri için Türkçe, sürüm 2.1.0 için"
+    "description": "🇹🇷 TiddlyWiki çeviri için Türkçe"
   },
   {
     "name": "SimplifiedChineseTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/zh-Hans/locale.zh-Hans.js",
     "type": "plugin",
-    "description": "🇨🇳 将 TiddlyWiki 2.4.1 翻译成简体中文"
+    "description": "🇨🇳 将 TiddlyWiki 翻译成简体中文"
   },
   {
     "name": "TraditionalChineseTranslation",
     "url": "https://github.com/TiddlyWiki/translations/blob/master/locales/core/zh-Hant/locale.zh-Hant.js",
     "type": "plugin",
-    "description": "🇨🇳 將 TiddlyWiki 2.4.1 翻譯為繁體中文"
+    "description": "🇨🇳 將 TiddlyWiki 翻譯為繁體中文"
   }
 ]
 //}}}
