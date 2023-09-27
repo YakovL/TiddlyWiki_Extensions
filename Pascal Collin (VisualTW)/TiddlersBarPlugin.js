@@ -1,6 +1,6 @@
 /***
 |Description    |A bar to switch between tiddlers through tabs (like browser tabs bar)|
-|Version        |1.2.6|
+|Version        |1.2.7|
 |Source         |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/Pascal%20Collin%20(VisualTW)/TiddlersBarPlugin.js|
 |Original Source|http://visualtw.ouvaton.org/VisualTW.html|
 |Author         |Pascal Collin|
@@ -70,11 +70,12 @@ config.macros.tiddlersBar = {
 	},
 	refresh: function(place, params) {
 		removeChildren(place);
-		config.macros.tiddlersBar.handler(place, "tiddlersBar", params);
-		if (config.macros.tiddlersBar.previousState != config.macros.tiddlersBar.isShown()) {
+		this.handler(place, "tiddlersBar", params);
+		if (this.previousState != this.isShown()) {
 			story.refreshAllTiddlers();
-			if (config.macros.tiddlersBar.previousState) story.forEachTiddler(function(t, e) { e.style.display = "" });
-			config.macros.tiddlersBar.previousState = !config.macros.tiddlersBar.previousState;
+			if (this.previousState)
+				story.forEachTiddler(function(t, e) { e.style.display = "" });
+			this.previousState = !this.previousState;
 		}
 	},
 	isShown: function() {
@@ -136,7 +137,7 @@ config.macros.tiddlersBar = {
 	},
 	createActiveTabButton: function(place, title) {
 		if (config.options.txtSelectedTiddlerTabButton && config.commands[config.options.txtSelectedTiddlerTabButton]) {
-			var btn = createTiddlyButton(place, title, config.commands[config.options.txtSelectedTiddlerTabButton].tooltip, config.macros.tiddlersBar.onSelectedTabButtonClick);
+			var btn = createTiddlyButton(place, title, config.commands[config.options.txtSelectedTiddlerTabButton].tooltip, this.onSelectedTabButtonClick);
 			btn.setAttribute("tiddler", title);
 		}
 		else
@@ -160,8 +161,7 @@ story.displayTiddler = function(srcElement, tiddler, template, animate, unused, 
 	var title = (tiddler instanceof Tiddler) ? tiddler.title : tiddler;
 	if (config.macros.tiddlersBar.isShown()) {
 		story.forEachTiddler(function(t, e) {
-			if (t != title) e.style.display = "none";
-			else e.style.display = "";
+			e.style.display = t == title ? "" : "none";
 		})
 		config.macros.tiddlersBar.currentTiddler = title;
 	}
@@ -177,13 +177,14 @@ refreshPageTemplate = function(title) {
 
 ensureVisible = function(e) { return 0 } // disable bottom scrolling (not useful now)
 
-config.shadowTiddlers.StyleSheetTiddlersBar = "/*{{{*/\n";
-config.shadowTiddlers.StyleSheetTiddlersBar += "#tiddlersBar .button {border:0}\n";
-config.shadowTiddlers.StyleSheetTiddlersBar += "#tiddlersBar .tab {white-space:nowrap}\n";
-config.shadowTiddlers.StyleSheetTiddlersBar += "#tiddlersBar {padding : 1em 0.5em 2px 0.5em}\n";
-config.shadowTiddlers.StyleSheetTiddlersBar += ".tabUnselected .tabButton, .tabSelected .tabButton {padding : 0 2px 0 2px; margin: 0 0 0 4px;}\n";
-config.shadowTiddlers.StyleSheetTiddlersBar += ".tiddler, .tabContents {border:1px [[ColorPalette::TertiaryPale]] solid;}\n";
-config.shadowTiddlers.StyleSheetTiddlersBar += "/*}}}*/";
+config.shadowTiddlers.StyleSheetTiddlersBar =
+	"/*{{{*/\n" +
+	"#tiddlersBar .button {border:0}\n" +
+	"#tiddlersBar .tab {white-space:nowrap}\n" +
+	"#tiddlersBar {padding : 1em 0.5em 2px 0.5em}\n" +
+	".tabUnselected .tabButton, .tabSelected .tabButton {padding : 0 2px 0 2px; margin: 0 0 0 4px;}\n" +
+	".tiddler, .tabContents {border:1px [[ColorPalette::TertiaryPale]] solid;}\n" +
+	"/*}}}*/";
 store.addNotification("StyleSheetTiddlersBar", refreshStyles);
 
 config.refreshers.none = function() { return true };
