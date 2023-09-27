@@ -9,14 +9,14 @@
 !Demos
 On [[homepage|http://visualtw.ouvaton.org/VisualTW.html]], open several tiddlers to use the tabs bar.
 !Installation
-#import this tiddler from [[homepage|http://visualtw.ouvaton.org/VisualTW.html]] (tagged as systemConfig)
-#save and reload
-#''if you're using a custom [[PageTemplate]]'', add {{{<div id='tiddlersBar' refresh='none' ondblclick='config.macros.tiddlersBar.onTiddlersBarAction(event)'></div>}}} before {{{<div id='tiddlerDisplay'></div>}}}
+# import this tiddler from [[homepage|http://visualtw.ouvaton.org/VisualTW.html]] (tagged as systemConfig)
+# save and reload
+# ''if you're using a custom [[PageTemplate]]'', add {{{<div id='tiddlersBar' refresh='none' ondblclick='config.macros.tiddlersBar.onTiddlersBarAction(event)'></div>}}} before {{{<div id='tiddlerDisplay'></div>}}}
 #optionally, adjust StyleSheetTiddlersBar
 !Tips
-*Doubleclick on the tiddlers bar (where there is no tab) create a new tiddler.
-*Tabs include a button to close {{{x}}} or save {{{!}}} their tiddler.
-*By default, click on the current tab close all others tiddlers.
+* Doubleclick on the tiddlers bar (where there is no tab) create a new tiddler.
+* Tabs include a button to close {{{x}}} or save {{{!}}} their tiddler.
+* By default, click on the current tab close all others tiddlers.
 !Configuration options
 <<option chkDisableTabsBar>> Disable the tabs bar (to print, by example).
 <<option chkHideTabsBarWhenSingleTab >> Automatically hide the tabs bar when only one tiddler is displayed.
@@ -26,11 +26,11 @@ On [[homepage|http://visualtw.ouvaton.org/VisualTW.html]], open several tiddlers
 !Code
 ***/
 //{{{
-config.options.chkDisableTabsBar = config.options.chkDisableTabsBar ? config.options.chkDisableTabsBar : false;
-config.options.chkHideTabsBarWhenSingleTab  = config.options.chkHideTabsBarWhenSingleTab  ? config.options.chkHideTabsBarWhenSingleTab  : false;
-config.options.txtSelectedTiddlerTabButton = config.options.txtSelectedTiddlerTabButton ? config.options.txtSelectedTiddlerTabButton : "closeOthers";
-config.options.txtPreviousTabKey = config.options.txtPreviousTabKey ? config.options.txtPreviousTabKey : "";
-config.options.txtNextTabKey = config.options.txtNextTabKey ? config.options.txtNextTabKey : "";
+config.options.chkDisableTabsBar           = config.options.chkDisableTabsBar || false;
+config.options.chkHideTabsBarWhenSingleTab = config.options.chkHideTabsBarWhenSingleTab || false;
+config.options.txtSelectedTiddlerTabButton = config.options.txtSelectedTiddlerTabButton || "closeOthers";
+config.options.txtPreviousTabKey           = config.options.txtPreviousTabKey || "";
+config.options.txtNextTabKey               = config.options.txtNextTabKey || "";
 config.macros.tiddlersBar = {
 	tooltip: "see ",
 	tooltipClose: "click here to close this tab",
@@ -84,7 +84,7 @@ config.macros.tiddlersBar = {
 		story.forEachTiddler(function() { cpt++ });
 		return (cpt > 1);
 	},
-	selectNextTab: function() {  //used when the current tab is closed (to select another tab)
+	selectNextTab: function() {  // used when the current tab is closed (to select another tab)
 		var previous = "";
 		story.forEachTiddler(function(title) {
 			if (!config.macros.tiddlersBar.currentTiddler) {
@@ -111,7 +111,7 @@ config.macros.tiddlersBar = {
 		if (t) {
 			if(story.hasChanges(t) && !readOnly) {
 				if(!confirm(config.commands.cancelTiddler.warning.format([t])))
-				return false;
+					return false;
 			}
 			story.closeTiddler(t);
 		}
@@ -150,7 +150,7 @@ story.coreDisplayTiddler = story.coreDisplayTiddler ? story.coreDisplayTiddler :
 story.closeTiddler = function(title, animate, unused) {
 	if (title == config.macros.tiddlersBar.currentTiddler)
 		config.macros.tiddlersBar.selectNextTab();
-	story.coreCloseTiddler(title, false, unused); //disable animation to get it closed before calling tiddlersBar.refresh
+	story.coreCloseTiddler(title, false, unused); // disable animation to get it closed before calling tiddlersBar.refresh
 	var e = document.getElementById("tiddlersBar");
 	if (e) config.macros.tiddlersBar.refresh(e, null);
 }
@@ -175,7 +175,7 @@ refreshPageTemplate = function(title) {
 	if (config.macros.tiddlersBar) config.macros.tiddlersBar.refresh(document.getElementById("tiddlersBar"));
 }
 
-ensureVisible = function (e) { return 0 } //disable bottom scrolling (not useful now)
+ensureVisible = function(e) { return 0 } // disable bottom scrolling (not useful now)
 
 config.shadowTiddlers.StyleSheetTiddlersBar = "/*{{{*/\n";
 config.shadowTiddlers.StyleSheetTiddlersBar += "#tiddlersBar .button {border:0}\n";
