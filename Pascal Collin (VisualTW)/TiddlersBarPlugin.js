@@ -6,23 +6,23 @@
 |Author         |Pascal Collin|
 |License        |[[BSD open source license|http://web.archive.org/web/20160707100158/http://visualtw.ouvaton.org/VisualTW.html#License]]|
 |~CoreVersion   |2.1.0|
-!Demos
+!Demo
 On [[homepage|http://visualtw.ouvaton.org/VisualTW.html]], open several tiddlers to use the tabs bar.
 !Installation
-# import this tiddler from [[homepage|http://visualtw.ouvaton.org/VisualTW.html]] (tagged as {{{systemConfig}}})
+# Copy or import this tiddler from [[homepage|http://visualtw.ouvaton.org/VisualTW.html]] (tagged as {{{systemConfig}}})
 # save and reload
 # ''if you're using a custom [[PageTemplate]]'', add {{{<div id='tiddlersBar' refresh='none' ondblclick='config.macros.tiddlersBar.onTiddlersBarAction(event)'></div>}}} before {{{<div id='tiddlerDisplay'></div>}}}
-# optionally, adjust StyleSheetTiddlersBar
-!Tips
-* Doubleclick on the tiddlers bar (where there is no tab) create a new tiddler.
-* Tabs include a button to close {{{x}}} or save {{{!}}} their tiddler.
-* By default, click on the current tab close all others tiddlers.
-!Configuration options
-<<option chkDisableTabsBar>> Disable the tabs bar (to print, by example).
-<<option chkHideTabsBarWhenSingleTab >> Automatically hide the tabs bar when only one tiddler is displayed.
-<<option txtSelectedTiddlerTabButton>> ''selected'' tab command button.
-<<option txtPreviousTabKey>> previous tab access key.
-<<option txtNextTabKey>> next tab access key.
+# optionally, adjust StyleSheetTiddlersBar.
+!Usage
+* Double-click on the tiddlers bar (where there is no tab) to create a new tiddler.
+* Tabs include a button to close ({{{x}}}) or save ({{{!}}}) their tiddler.
+* By default, clicking the current tab closes all other tiddlers.
+!!Configuration options
+<<option chkDisableTabsBar>> Disable the tabs bar (to print, for example)
+<<option chkHideTabsBarWhenSingleTab >> Automatically hide the tabs bar when only one tiddler is displayed
+<<option txtSelectedTiddlerTabButton>> ''selected'' tab command button
+<<option txtPreviousTabKey>> previous tab access key
+<<option txtNextTabKey>> next tab access key
 !Code
 ***/
 //{{{
@@ -55,8 +55,7 @@ config.macros.tiddlersBar = {
 				config.macros.tiddlersBar.createActiveTabButton(d, title);
 				if (previous && nextKey) previous.setAttribute("accessKey", nextKey);
 				previous = "active";
-			}
-			else {
+			} else {
 				var d = createTiddlyElement(place, "span", null, "tab tabUnselected");
 				var btn = createTiddlyButton(d, title, config.macros.tiddlersBar.lingo.tooltip + title, config.macros.tiddlersBar.onSelectTab);
 				btn.setAttribute("tiddler", title);
