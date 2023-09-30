@@ -40,7 +40,8 @@ config.macros.tiddlersBar = {
 	previousState: false,
 	previousKey: config.options.txtPreviousTabKey,
 	nextKey: config.options.txtNextTabKey,
-	tabsAnimationSource: null, //use document.getElementById("tiddlerDisplay") if you need animation on tab switching.
+	// use document.getElementById("tiddlerDisplay") if you need animation on tab switching.
+	tabsAnimationSource: null,
 	handler: function(place, macroName, params) {
 		if(!this.isShown()) return;
 		var previous = null;
@@ -60,10 +61,14 @@ config.macros.tiddlersBar = {
 				previous = btn;
 			}
 			var isDirty = story.isDirty(title);
-			var c = createTiddlyButton(d, isDirty ? "!" : "x", isDirty ? config.macros.tiddlersBar.tooltipSave : config.macros.tiddlersBar.tooltipClose, isDirty ? config.macros.tiddlersBar.onTabSave : config.macros.tiddlersBar.onTabClose, "tabButton");
+			var c = createTiddlyButton(d, isDirty ? "!" : "x",
+				isDirty ? config.macros.tiddlersBar.tooltipSave : config.macros.tiddlersBar.tooltipClose,
+				isDirty ? config.macros.tiddlersBar.onTabSave : config.macros.tiddlersBar.onTabClose,
+				"tabButton");
 			c.setAttribute("tiddler", title);
 			if (place.childNodes) {
-				place.insertBefore(document.createTextNode(" "), place.firstChild); // to allow break line here when many tiddlers are open
+				// to allow break line here when many tiddlers are open
+				place.insertBefore(document.createTextNode(" "), place.firstChild);
 				place.insertBefore(d, place.firstChild);
 			}
 			else place.appendChild(d);
@@ -155,7 +160,8 @@ story.coreDisplayTiddler = story.coreDisplayTiddler ? story.coreDisplayTiddler :
 story.closeTiddler = function(title, animate, unused) {
 	if (title == config.macros.tiddlersBar.currentTiddler)
 		config.macros.tiddlersBar.selectNextTab();
-	story.coreCloseTiddler(title, false, unused); // disable animation to get it closed before calling tiddlersBar.refresh
+	// disable animation to get it closed before calling tiddlersBar.refresh
+	story.coreCloseTiddler(title, false, unused);
 	var e = document.getElementById("tiddlersBar");
 	if (e) config.macros.tiddlersBar.refresh(e, null);
 }
