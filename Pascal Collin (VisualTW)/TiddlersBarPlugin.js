@@ -42,31 +42,32 @@ config.macros.tiddlersBar = {
 	nextKey: config.options.txtNextTabKey,
 	tabsAnimationSource: null, //use document.getElementById("tiddlerDisplay") if you need animation on tab switching.
 	handler: function(place, macroName, params) {
+		if(!this.isShown()) return;
 		var previous = null;
-		if (config.macros.tiddlersBar.isShown())
-			story.forEachTiddler(function(title, e) {
-				if (title == config.macros.tiddlersBar.currentTiddler) {
-					var d = createTiddlyElement(null, "span", null, "tab tabSelected");
-					config.macros.tiddlersBar.createActiveTabButton(d, title);
-					if (previous && config.macros.tiddlersBar.previousKey) previous.setAttribute("accessKey", config.macros.tiddlersBar.nextKey);
-					previous = "active";
-				}
-				else {
-					var d = createTiddlyElement(place, "span", null, "tab tabUnselected");
-					var btn = createTiddlyButton(d, title, config.macros.tiddlersBar.tooltip + title, config.macros.tiddlersBar.onSelectTab);
-					btn.setAttribute("tiddler", title);
-					if (previous == "active" && config.macros.tiddlersBar.nextKey) btn.setAttribute("accessKey", config.macros.tiddlersBar.previousKey);
-					previous = btn;
-				}
-				var isDirty = story.isDirty(title);
-				var c = createTiddlyButton(d, isDirty ? "!" : "x", isDirty ? config.macros.tiddlersBar.tooltipSave : config.macros.tiddlersBar.tooltipClose, isDirty ? config.macros.tiddlersBar.onTabSave : config.macros.tiddlersBar.onTabClose, "tabButton");
-				c.setAttribute("tiddler", title);
-				if (place.childNodes) {
-					place.insertBefore(document.createTextNode(" "), place.firstChild); // to allow break line here when many tiddlers are open
-					place.insertBefore(d, place.firstChild);
-				}
-				else place.appendChild(d);
-			})
+
+		story.forEachTiddler(function(title, e) {
+			if (title == config.macros.tiddlersBar.currentTiddler) {
+				var d = createTiddlyElement(null, "span", null, "tab tabSelected");
+				config.macros.tiddlersBar.createActiveTabButton(d, title);
+				if (previous && config.macros.tiddlersBar.previousKey) previous.setAttribute("accessKey", config.macros.tiddlersBar.nextKey);
+				previous = "active";
+			}
+			else {
+				var d = createTiddlyElement(place, "span", null, "tab tabUnselected");
+				var btn = createTiddlyButton(d, title, config.macros.tiddlersBar.tooltip + title, config.macros.tiddlersBar.onSelectTab);
+				btn.setAttribute("tiddler", title);
+				if (previous == "active" && config.macros.tiddlersBar.nextKey) btn.setAttribute("accessKey", config.macros.tiddlersBar.previousKey);
+				previous = btn;
+			}
+			var isDirty = story.isDirty(title);
+			var c = createTiddlyButton(d, isDirty ? "!" : "x", isDirty ? config.macros.tiddlersBar.tooltipSave : config.macros.tiddlersBar.tooltipClose, isDirty ? config.macros.tiddlersBar.onTabSave : config.macros.tiddlersBar.onTabClose, "tabButton");
+			c.setAttribute("tiddler", title);
+			if (place.childNodes) {
+				place.insertBefore(document.createTextNode(" "), place.firstChild); // to allow break line here when many tiddlers are open
+				place.insertBefore(d, place.firstChild);
+			}
+			else place.appendChild(d);
+		})
 	},
 	refresh: function(place, params) {
 		removeChildren(place);
