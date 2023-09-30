@@ -129,15 +129,15 @@ var bar = config.macros.tiddlersBar = {
 		}
 		return false;
 	},
-	onTabSave: function(e) {
+	onTabSave: function(event) {
 		var t = this.getAttribute("tiddler");
-		if (!e) e = window.event;
-		if (t) config.commands.saveTiddler.handler(e, null, t);
+		event = event || window.event;
+		if (t) config.commands.saveTiddler.handler(event, null, t);
 		return false;
 	},
 	onSelectedTabButtonClick: function(event, src, title) {
 		var t = this.getAttribute("tiddler");
-		if (!event) event = window.event;
+		event = event || window.event;
 		if (t && config.options.txtSelectedTiddlerTabButton && config.commands[config.options.txtSelectedTiddlerTabButton])
 			config.commands[config.options.txtSelectedTiddlerTabButton].handler(event, src, t);
 		return false;
