@@ -9,10 +9,10 @@
 !Demos
 On [[homepage|http://visualtw.ouvaton.org/VisualTW.html]], open several tiddlers to use the tabs bar.
 !Installation
-# import this tiddler from [[homepage|http://visualtw.ouvaton.org/VisualTW.html]] (tagged as systemConfig)
+# import this tiddler from [[homepage|http://visualtw.ouvaton.org/VisualTW.html]] (tagged as {{{systemConfig}}})
 # save and reload
 # ''if you're using a custom [[PageTemplate]]'', add {{{<div id='tiddlersBar' refresh='none' ondblclick='config.macros.tiddlersBar.onTiddlersBarAction(event)'></div>}}} before {{{<div id='tiddlerDisplay'></div>}}}
-#optionally, adjust StyleSheetTiddlersBar
+# optionally, adjust StyleSheetTiddlersBar
 !Tips
 * Doubleclick on the tiddlers bar (where there is no tab) create a new tiddler.
 * Tabs include a button to close {{{x}}} or save {{{!}}} their tiddler.
@@ -85,7 +85,8 @@ config.macros.tiddlersBar = {
 		story.forEachTiddler(function() { cpt++ });
 		return (cpt > 1);
 	},
-	selectNextTab: function() {  // used when the current tab is closed (to select another tab)
+	// used when the current tab is closed (to select another tab)
+	selectNextTab: function() {
 		var previous = "";
 		story.forEachTiddler(function(title) {
 			if (!config.macros.tiddlersBar.currentTiddler) {
@@ -132,12 +133,14 @@ config.macros.tiddlersBar = {
 		return false;
 	},
 	onTiddlersBarAction: function(event) {
-		var source = event.target ? event.target.id : event.srcElement.id; // FF uses target and IE uses srcElement;
+		// IE used srcElement
+		var source = event.target ? event.target.id : event.srcElement.id;
 		if (source == "tiddlersBar") story.displayTiddler(null, 'New Tiddler', DEFAULT_EDIT_TEMPLATE, false, null, null);
 	},
 	createActiveTabButton: function(place, title) {
 		if (config.options.txtSelectedTiddlerTabButton && config.commands[config.options.txtSelectedTiddlerTabButton]) {
-			var btn = createTiddlyButton(place, title, config.commands[config.options.txtSelectedTiddlerTabButton].tooltip, this.onSelectedTabButtonClick);
+			var btn = createTiddlyButton(place, title,
+				config.commands[config.options.txtSelectedTiddlerTabButton].tooltip, this.onSelectedTabButtonClick);
 			btn.setAttribute("tiddler", title);
 		}
 		else
