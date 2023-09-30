@@ -38,6 +38,7 @@ var bar = config.macros.tiddlersBar = {
 	tooltipClose: "click here to close this tab",
 	tooltipSave: "click here to save this tab",
 
+	id: "tiddlersBar",
 	currentTiddler:	"",
 	previousState:	false,
 	// use document.getElementById("tiddlerDisplay") if you need animation on tab switching.
@@ -145,7 +146,7 @@ var bar = config.macros.tiddlersBar = {
 	onTiddlersBarAction: function(event) {
 		// IE used srcElement
 		var source = event.target ? event.target.id : event.srcElement.id;
-		if (source == "tiddlersBar") story.displayTiddler(null,
+		if (source == bar.id) story.displayTiddler(null,
 			'New Tiddler', DEFAULT_EDIT_TEMPLATE, false, null, null);
 	},
 	createActiveTabButton: function(place, title) {
@@ -167,7 +168,7 @@ story.closeTiddler = function(title, animate, unused) {
 		bar.selectNextTab();
 	// disable animation to get it closed before calling tiddlersBar.refresh
 	story.coreCloseTiddler(title, false, unused);
-	var e = document.getElementById("tiddlersBar");
+	var e = document.getElementById(bar.id);
 	if (e) bar.refresh(e, null);
 }
 
@@ -180,14 +181,14 @@ story.displayTiddler = function(srcElement, tiddler, template, animate, unused, 
 		})
 		bar.currentTiddler = title;
 	}
-	var e = document.getElementById("tiddlersBar");
+	var e = document.getElementById(bar.id);
 	if (e) bar.refresh(e, null);
 }
 
 var coreRefreshPageTemplate = coreRefreshPageTemplate ? coreRefreshPageTemplate : refreshPageTemplate;
 refreshPageTemplate = function(title) {
 	coreRefreshPageTemplate(title);
-	if (config.macros.tiddlersBar) config.macros.tiddlersBar.refresh(document.getElementById("tiddlersBar"));
+	bar.refresh(document.getElementById(bar.id));
 }
 
 ensureVisible = function(e) { return 0 } // disable bottom scrolling (not useful now)
