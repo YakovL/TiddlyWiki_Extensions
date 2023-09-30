@@ -1,6 +1,6 @@
 /***
 |Description    |A bar to switch between tiddlers through tabs (like browser tabs bar)|
-|Version        |1.2.8|
+|Version        |1.2.9|
 |Source         |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/Pascal%20Collin%20(VisualTW)/TiddlersBarPlugin.js|
 |Original Source|http://visualtw.ouvaton.org/VisualTW.html|
 |Author         |Pascal Collin|
@@ -38,8 +38,6 @@ config.macros.tiddlersBar = {
 		tooltipClose: "click here to close this tab",
 		tooltipSave: "click here to save this tab"
 	},
-	previousKey: config.options.txtPreviousTabKey,
-	nextKey: config.options.txtNextTabKey,
 
 	currentTiddler:	"",
 	previousState:	false,
@@ -48,19 +46,21 @@ config.macros.tiddlersBar = {
 	handler: function(place, macroName, params) {
 		if(!this.isShown()) return;
 		var previous = null;
+		var prevKey = config.options.txtPreviousTabKey;
+		var nextKey = config.options.txtNextTabKey;
 
 		story.forEachTiddler(function(title, e) {
 			if (title == config.macros.tiddlersBar.currentTiddler) {
 				var d = createTiddlyElement(null, "span", null, "tab tabSelected");
 				config.macros.tiddlersBar.createActiveTabButton(d, title);
-				if (previous && config.macros.tiddlersBar.previousKey) previous.setAttribute("accessKey", config.macros.tiddlersBar.nextKey);
+				if (previous && nextKey) previous.setAttribute("accessKey", nextKey);
 				previous = "active";
 			}
 			else {
 				var d = createTiddlyElement(place, "span", null, "tab tabUnselected");
 				var btn = createTiddlyButton(d, title, config.macros.tiddlersBar.lingo.tooltip + title, config.macros.tiddlersBar.onSelectTab);
 				btn.setAttribute("tiddler", title);
-				if (previous == "active" && config.macros.tiddlersBar.nextKey) btn.setAttribute("accessKey", config.macros.tiddlersBar.previousKey);
+				if (previous == "active" && prevKey) btn.setAttribute("accessKey", prevKey);
 				previous = btn;
 			}
 			var isDirty = story.isDirty(title);
