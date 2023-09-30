@@ -1,6 +1,6 @@
 /***
 |Description    |A bar to switch between tiddlers through tabs (like browser tabs bar)|
-|Version        |1.2.7|
+|Version        |1.2.8|
 |Source         |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/Pascal%20Collin%20(VisualTW)/TiddlersBarPlugin.js|
 |Original Source|http://visualtw.ouvaton.org/VisualTW.html|
 |Author         |Pascal Collin|
@@ -31,15 +31,18 @@ config.options.chkHideTabsBarWhenSingleTab = config.options.chkHideTabsBarWhenSi
 config.options.txtSelectedTiddlerTabButton = config.options.txtSelectedTiddlerTabButton || "closeOthers";
 config.options.txtPreviousTabKey           = config.options.txtPreviousTabKey || "";
 config.options.txtNextTabKey               = config.options.txtNextTabKey || "";
+
 config.macros.tiddlersBar = {
-	tooltip: "see ",
-	tooltipClose: "click here to close this tab",
-	tooltipSave: "click here to save this tab",
-	promptRename: "Enter tiddler new name",
-	currentTiddler: "",
-	previousState: false,
+	lingo: {
+		tooltip: "see ",
+		tooltipClose: "click here to close this tab",
+		tooltipSave: "click here to save this tab"
+	},
 	previousKey: config.options.txtPreviousTabKey,
 	nextKey: config.options.txtNextTabKey,
+
+	currentTiddler:	"",
+	previousState:	false,
 	// use document.getElementById("tiddlerDisplay") if you need animation on tab switching.
 	tabsAnimationSource: null,
 	handler: function(place, macroName, params) {
@@ -55,14 +58,14 @@ config.macros.tiddlersBar = {
 			}
 			else {
 				var d = createTiddlyElement(place, "span", null, "tab tabUnselected");
-				var btn = createTiddlyButton(d, title, config.macros.tiddlersBar.tooltip + title, config.macros.tiddlersBar.onSelectTab);
+				var btn = createTiddlyButton(d, title, config.macros.tiddlersBar.lingo.tooltip + title, config.macros.tiddlersBar.onSelectTab);
 				btn.setAttribute("tiddler", title);
 				if (previous == "active" && config.macros.tiddlersBar.nextKey) btn.setAttribute("accessKey", config.macros.tiddlersBar.previousKey);
 				previous = btn;
 			}
 			var isDirty = story.isDirty(title);
 			var c = createTiddlyButton(d, isDirty ? "!" : "x",
-				isDirty ? config.macros.tiddlersBar.tooltipSave : config.macros.tiddlersBar.tooltipClose,
+				isDirty ? config.macros.tiddlersBar.lingo.tooltipSave : config.macros.tiddlersBar.lingo.tooltipClose,
 				isDirty ? config.macros.tiddlersBar.onTabSave : config.macros.tiddlersBar.onTabClose,
 				"tabButton");
 			c.setAttribute("tiddler", title);
@@ -146,7 +149,7 @@ config.macros.tiddlersBar = {
 	createActiveTabButton: function(place, title) {
 		if (config.options.txtSelectedTiddlerTabButton && config.commands[config.options.txtSelectedTiddlerTabButton]) {
 			var btn = createTiddlyButton(place, title,
-				config.commands[config.options.txtSelectedTiddlerTabButton].tooltip, this.onSelectedTabButtonClick);
+				config.commands[config.options.txtSelectedTiddlerTabButton].lingo.tooltip, this.onSelectedTabButtonClick);
 			btn.setAttribute("tiddler", title);
 		}
 		else
