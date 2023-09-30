@@ -32,7 +32,7 @@ config.options.txtSelectedTiddlerTabButton = config.options.txtSelectedTiddlerTa
 config.options.txtPreviousTabKey           = config.options.txtPreviousTabKey || "";
 config.options.txtNextTabKey               = config.options.txtNextTabKey || "";
 
-config.macros.tiddlersBar = {
+var bar = config.macros.tiddlersBar = {
 	lingo: {
 		tooltip: "see ",
 		tooltipClose: "click here to close this tab",
@@ -50,22 +50,22 @@ config.macros.tiddlersBar = {
 		var nextKey = config.options.txtNextTabKey;
 
 		story.forEachTiddler(function(title, e) {
-			if (title == config.macros.tiddlersBar.currentTiddler) {
+			if (title == bar.currentTiddler) {
 				var d = createTiddlyElement(null, "span", null, "tab tabSelected");
 				config.macros.tiddlersBar.createActiveTabButton(d, title);
 				if (previous && nextKey) previous.setAttribute("accessKey", nextKey);
 				previous = "active";
 			} else {
 				var d = createTiddlyElement(place, "span", null, "tab tabUnselected");
-				var btn = createTiddlyButton(d, title, config.macros.tiddlersBar.lingo.tooltip + title, config.macros.tiddlersBar.onSelectTab);
+				var btn = createTiddlyButton(d, title, bar.lingo.tooltip + title, bar.onSelectTab);
 				btn.setAttribute("tiddler", title);
 				if (previous == "active" && prevKey) btn.setAttribute("accessKey", prevKey);
 				previous = btn;
 			}
 			var isDirty = story.isDirty(title);
 			var c = createTiddlyButton(d, isDirty ? "!" : "x",
-				isDirty ? config.macros.tiddlersBar.lingo.tooltipSave : config.macros.tiddlersBar.lingo.tooltipClose,
-				isDirty ? config.macros.tiddlersBar.onTabSave : config.macros.tiddlersBar.onTabClose,
+				isDirty ? bar.lingo.tooltipSave : bar.lingo.tooltipClose,
+				isDirty ? bar.onTabSave : bar.onTabClose,
 				"tabButton");
 			c.setAttribute("tiddler", title);
 			if (place.childNodes) {
@@ -89,27 +89,29 @@ config.macros.tiddlersBar = {
 	isShown: function() {
 		if (config.options.chkDisableTabsBar) return false;
 		if (!config.options.chkHideTabsBarWhenSingleTab) return true;
-		var cpt = 0;
-		story.forEachTiddler(function() { cpt++ });
-		return (cpt > 1);
+
+		var numberOfOpenTiddlers = 0;
+		story.forEachTiddler(function() { numberOfOpenTiddlers++ });
+		return numberOfOpenTiddlers > 1;
 	},
 	// used when the current tab is closed (to select another tab)
 	selectNextTab: function() {
 		var previous = "";
 		story.forEachTiddler(function(title) {
-			if (!config.macros.tiddlersBar.currentTiddler) {
+			if (!bar.currentTiddler) {
 				story.displayTiddler(null, title);
 				return;
 			}
-			if (title == config.macros.tiddlersBar.currentTiddler) {
+			if (title == bar.currentTiddler) {
 				if (previous) {
 					story.displayTiddler(null, previous);
 					return;
 				}
-				else config.macros.tiddlersBar.currentTiddler = ""; 	// so next tab will be selected
+				// next tab will be selected
+				else bar.currentTiddler = "";
 			}
 			else previous = title;
-			});
+		});
 	},
 	onSelectTab: function(e) {
 		var t = this.getAttribute("tiddler");
@@ -160,25 +162,25 @@ story.coreCloseTiddler = story.coreCloseTiddler ? story.coreCloseTiddler : story
 story.coreDisplayTiddler = story.coreDisplayTiddler ? story.coreDisplayTiddler : story.displayTiddler;
 
 story.closeTiddler = function(title, animate, unused) {
-	if (title == config.macros.tiddlersBar.currentTiddler)
-		config.macros.tiddlersBar.selectNextTab();
+	if (title == bar.currentTiddler)
+		bar.selectNextTab();
 	// disable animation to get it closed before calling tiddlersBar.refresh
 	story.coreCloseTiddler(title, false, unused);
 	var e = document.getElementById("tiddlersBar");
-	if (e) config.macros.tiddlersBar.refresh(e, null);
+	if (e) bar.refresh(e, null);
 }
 
 story.displayTiddler = function(srcElement, tiddler, template, animate, unused, customFields, toggle) {
-	story.coreDisplayTiddler(config.macros.tiddlersBar.tabsAnimationSource, tiddler, template, animate, unused, customFields, toggle);
+	story.coreDisplayTiddler(bar.tabsAnimationSource, tiddler, template, animate, unused, customFields, toggle);
 	var title = (tiddler instanceof Tiddler) ? tiddler.title : tiddler;
-	if (config.macros.tiddlersBar.isShown()) {
+	if (bar.isShown()) {
 		story.forEachTiddler(function(t, e) {
 			e.style.display = t == title ? "" : "none";
 		})
-		config.macros.tiddlersBar.currentTiddler = title;
+		bar.currentTiddler = title;
 	}
 	var e = document.getElementById("tiddlersBar");
-	if (e) config.macros.tiddlersBar.refresh(e, null);
+	if (e) bar.refresh(e, null);
 }
 
 var coreRefreshPageTemplate = coreRefreshPageTemplate ? coreRefreshPageTemplate : refreshPageTemplate;
