@@ -137,8 +137,9 @@ var bar = config.macros.tiddlersBar = {
 	onSelectedTabButtonClick: function(event, src, title) {
 		var t = this.getAttribute("tiddler");
 		event = event || window.event;
-		if (t && config.options.txtSelectedTiddlerTabButton && config.commands[config.options.txtSelectedTiddlerTabButton])
-			config.commands[config.options.txtSelectedTiddlerTabButton].handler(event, src, t);
+		var command = config.options.txtSelectedTiddlerTabButton;
+		if (t && command && config.commands[command])
+			config.commands[command].handler(event, src, t);
 		return false;
 	},
 	onTiddlersBarAction: function(event) {
@@ -148,13 +149,13 @@ var bar = config.macros.tiddlersBar = {
 			'New Tiddler', DEFAULT_EDIT_TEMPLATE, false, null, null);
 	},
 	createActiveTabButton: function(place, title) {
-		if (config.options.txtSelectedTiddlerTabButton && config.commands[config.options.txtSelectedTiddlerTabButton]) {
+		var command = config.options.txtSelectedTiddlerTabButton;
+		if (command && config.commands[command]) {
 			var btn = createTiddlyButton(place, title,
-				config.commands[config.options.txtSelectedTiddlerTabButton].tooltip, this.onSelectedTabButtonClick);
+				config.commands[command].tooltip, this.onSelectedTabButtonClick);
 			btn.setAttribute("tiddler", title);
 		}
-		else
-			createTiddlyText(place, title);
+		else createTiddlyText(place, title);
 	}
 }
 
