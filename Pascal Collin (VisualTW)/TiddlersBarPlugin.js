@@ -33,11 +33,10 @@ config.options.txtPreviousTabKey           = config.options.txtPreviousTabKey ||
 config.options.txtNextTabKey               = config.options.txtNextTabKey || "";
 
 var bar = config.macros.tiddlersBar = {
-	lingo: {
-		tooltip: "see ",
-		tooltipClose: "click here to close this tab",
-		tooltipSave: "click here to save this tab"
-	},
+	// lingo
+	tooltip: "see ",
+	tooltipClose: "click here to close this tab",
+	tooltipSave: "click here to save this tab",
 
 	currentTiddler:	"",
 	previousState:	false,
@@ -57,14 +56,14 @@ var bar = config.macros.tiddlersBar = {
 				previous = "active";
 			} else {
 				var d = createTiddlyElement(place, "span", null, "tab tabUnselected");
-				var btn = createTiddlyButton(d, title, bar.lingo.tooltip + title, bar.onSelectTab);
+				var btn = createTiddlyButton(d, title, bar.tooltip + title, bar.onSelectTab);
 				btn.setAttribute("tiddler", title);
 				if (previous == "active" && prevKey) btn.setAttribute("accessKey", prevKey);
 				previous = btn;
 			}
 			var isDirty = story.isDirty(title);
 			var c = createTiddlyButton(d, isDirty ? "!" : "x",
-				isDirty ? bar.lingo.tooltipSave : bar.lingo.tooltipClose,
+				isDirty ? bar.tooltipSave : bar.tooltipClose,
 				isDirty ? bar.onTabSave : bar.onTabClose,
 				"tabButton");
 			c.setAttribute("tiddler", title);
@@ -150,7 +149,7 @@ var bar = config.macros.tiddlersBar = {
 	createActiveTabButton: function(place, title) {
 		if (config.options.txtSelectedTiddlerTabButton && config.commands[config.options.txtSelectedTiddlerTabButton]) {
 			var btn = createTiddlyButton(place, title,
-				config.commands[config.options.txtSelectedTiddlerTabButton].lingo.tooltip, this.onSelectedTabButtonClick);
+				config.commands[config.options.txtSelectedTiddlerTabButton].tooltip, this.onSelectedTabButtonClick);
 			btn.setAttribute("tiddler", title);
 		}
 		else
