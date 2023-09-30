@@ -9,7 +9,7 @@
 !Demo
 On [[homepage|http://visualtw.ouvaton.org/VisualTW.html]], open several tiddlers to use the tabs bar.
 !Installation
-# Copy or import this tiddler from [[homepage|http://visualtw.ouvaton.org/VisualTW.html]] (tagged as {{{systemConfig}}})
+# Copy or import this tiddler (tagged as {{{systemConfig}}})
 # save and reload
 # optionally, adjust StyleSheetTiddlersBar.
 Unlike previous versions, you don't have to change  the custom [[PageTemplate]] if you are using one.
@@ -20,7 +20,7 @@ Unlike previous versions, you don't have to change  the custom [[PageTemplate]] 
 !!Configuration options
 <<option chkDisableTabsBar>> Disable the tabs bar (to print, for example)
 <<option chkHideTabsBarWhenSingleTab >> Automatically hide the tabs bar when only one tiddler is displayed
-<<option txtSelectedTiddlerTabButton>> ''selected'' tab command button
+<<option txtSelectedTiddlerTabButton>> toolbar command (like {{{closeOthers}}}) applied on click on the ''selected'' tab
 <<option txtPreviousTabKey>> previous tab access key
 <<option txtNextTabKey>> next tab access key
 !Code
