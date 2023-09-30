@@ -1,6 +1,6 @@
 /***
 |Description    |A bar to switch between tiddlers through tabs (like browser tabs bar)|
-|Version        |1.2.9|
+|Version        |1.3.0|
 |Source         |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/Pascal%20Collin%20(VisualTW)/TiddlersBarPlugin.js|
 |Original Source|http://visualtw.ouvaton.org/VisualTW.html|
 |Author         |Pascal Collin|
@@ -11,8 +11,8 @@ On [[homepage|http://visualtw.ouvaton.org/VisualTW.html]], open several tiddlers
 !Installation
 # Copy or import this tiddler from [[homepage|http://visualtw.ouvaton.org/VisualTW.html]] (tagged as {{{systemConfig}}})
 # save and reload
-# ''if you're using a custom [[PageTemplate]]'', add {{{<div id='tiddlersBar' refresh='none' ondblclick='config.macros.tiddlersBar.onTiddlersBarAction(event)'></div>}}} before {{{<div id='tiddlerDisplay'></div>}}}
 # optionally, adjust StyleSheetTiddlersBar.
+Unlike previous versions, you don't have to change  the custom [[PageTemplate]] if you are using one.
 !Usage
 * Double-click on the tiddlers bar (where there is no tab) to create a new tiddler.
 * Tabs include a button to close ({{{x}}}) or save ({{{!}}}) their tiddler.
@@ -188,6 +188,11 @@ story.displayTiddler = function(srcElement, tiddler, template, animate, unused, 
 var coreRefreshPageTemplate = coreRefreshPageTemplate ? coreRefreshPageTemplate : refreshPageTemplate;
 refreshPageTemplate = function(title) {
 	coreRefreshPageTemplate(title);
+	if (!document.getElementById(bar.id)) {
+		jQuery("<div id='" + bar.id + "' refresh='none'>")
+			.on("dblclick", bar.onTiddlersBarAction)
+			.insertBefore("#tiddlerDisplay")
+	}
 	bar.refresh(document.getElementById(bar.id));
 }
 
@@ -204,6 +209,4 @@ config.shadowTiddlers.StyleSheetTiddlersBar =
 store.addNotification("StyleSheetTiddlersBar", refreshStyles);
 
 config.refreshers.none = function() { return true };
-config.shadowTiddlers.PageTemplate = config.shadowTiddlers.PageTemplate.replace(/<div id='tiddlerDisplay'><\/div>/m, "<div id='tiddlersBar' refresh='none' ondblclick='config.macros.tiddlersBar.onTiddlersBarAction(event)'></div>\n<div id='tiddlerDisplay'></div>");
-
 //}}}
