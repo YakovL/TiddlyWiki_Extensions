@@ -51,7 +51,7 @@ var bar = config.macros.tiddlersBar = {
 		story.forEachTiddler(function(title, e) {
 			if (title == bar.currentTiddler) {
 				var d = createTiddlyElement(null, "span", null, "tab tabSelected");
-				config.macros.tiddlersBar.createActiveTabButton(d, title);
+				bar.createActiveTabButton(d, title);
 				if (previous && nextKey) previous.setAttribute("accessKey", nextKey);
 				previous = "active";
 			} else {
@@ -112,12 +112,12 @@ var bar = config.macros.tiddlersBar = {
 			else previous = title;
 		});
 	},
-	onSelectTab: function(e) {
+	onSelectTab: function() {
 		var t = this.getAttribute("tiddler");
 		if (t) story.displayTiddler(null, t);
 		return false;
 	},
-	onTabClose: function(e) {
+	onTabClose: function() {
 		var t = this.getAttribute("tiddler");
 		if (t) {
 			if(story.hasChanges(t) && !readOnly) {
@@ -144,7 +144,8 @@ var bar = config.macros.tiddlersBar = {
 	onTiddlersBarAction: function(event) {
 		// IE used srcElement
 		var source = event.target ? event.target.id : event.srcElement.id;
-		if (source == "tiddlersBar") story.displayTiddler(null, 'New Tiddler', DEFAULT_EDIT_TEMPLATE, false, null, null);
+		if (source == "tiddlersBar") story.displayTiddler(null,
+			'New Tiddler', DEFAULT_EDIT_TEMPLATE, false, null, null);
 	},
 	createActiveTabButton: function(place, title) {
 		if (config.options.txtSelectedTiddlerTabButton && config.commands[config.options.txtSelectedTiddlerTabButton]) {
