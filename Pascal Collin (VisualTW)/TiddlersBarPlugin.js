@@ -160,23 +160,23 @@ var bar = config.macros.tiddlersBar = {
 	}
 }
 
-story.coreCloseTiddler = story.coreCloseTiddler ? story.coreCloseTiddler : story.closeTiddler;
-story.coreDisplayTiddler = story.coreDisplayTiddler ? story.coreDisplayTiddler : story.displayTiddler;
-
+story.coreCloseTiddler = story.coreCloseTiddler || story.closeTiddler;
 story.closeTiddler = function(title, animate, unused) {
-	if (title == bar.currentTiddler)
-		bar.selectNextTab();
+	if (title == bar.currentTiddler) bar.selectNextTab();
 	// disable animation to get it closed before calling tiddlersBar.refresh
-	story.coreCloseTiddler(title, false, unused);
+	animate = false;
+	this.coreCloseTiddler.apply(this, arguments);
 	var e = document.getElementById(bar.id);
 	if (e) bar.refresh(e, null);
 }
 
+story.coreDisplayTiddler = story.coreDisplayTiddler || story.displayTiddler;
 story.displayTiddler = function(srcElement, tiddler, template, animate, unused, customFields, toggle) {
-	story.coreDisplayTiddler(bar.tabsAnimationSource, tiddler, template, animate, unused, customFields, toggle);
+	srcElement = bar.tabsAnimationSource;
+	this.coreDisplayTiddler.apply(this, arguments);
 	var title = (tiddler instanceof Tiddler) ? tiddler.title : tiddler;
 	if (bar.isShown()) {
-		story.forEachTiddler(function(t, e) {
+		this.forEachTiddler(function(t, e) {
 			e.style.display = t == title ? "" : "none";
 		})
 		bar.currentTiddler = title;
