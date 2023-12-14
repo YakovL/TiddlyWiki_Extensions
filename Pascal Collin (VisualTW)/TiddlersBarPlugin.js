@@ -1,6 +1,6 @@
 /***
 |Description    |A bar to switch between tiddlers through tabs (like browser tabs bar)|
-|Version        |1.3.0|
+|Version        |1.3.1|
 |Source         |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/Pascal%20Collin%20(VisualTW)/TiddlersBarPlugin.js|
 |Original Source|http://visualtw.ouvaton.org/VisualTW.html|
 |Author         |Pascal Collin|
@@ -139,6 +139,7 @@ var bar = config.macros.tiddlersBar = {
 		var t = this.getAttribute("tiddler");
 		event = event || window.event;
 		var command = config.options.txtSelectedTiddlerTabButton;
+
 		if (t && command && config.commands[command])
 			config.commands[command].handler(event, src, t);
 		return false;
@@ -185,9 +186,9 @@ story.displayTiddler = function(srcElement, tiddler, template, animate, unused, 
 	if (e) bar.refresh(e, null);
 }
 
-var coreRefreshPageTemplate = coreRefreshPageTemplate ? coreRefreshPageTemplate : refreshPageTemplate;
-refreshPageTemplate = function(title) {
-	coreRefreshPageTemplate(title);
+var orig_TBP_refreshDisplay = orig_TBP_refreshDisplay || refreshDisplay;
+refreshDisplay = function() {
+	orig_TBP_refreshDisplay.apply(this, arguments);
 	if (!document.getElementById(bar.id)) {
 		jQuery("<div id='" + bar.id + "' refresh='none'>")
 			.on("dblclick", bar.onTiddlersBarAction)
