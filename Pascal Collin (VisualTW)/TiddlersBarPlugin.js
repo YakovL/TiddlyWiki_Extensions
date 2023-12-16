@@ -206,7 +206,7 @@ config.shadowTiddlers.StyleSheetTiddlersBar =
 	"#tiddlersBar .tab { white-space: nowrap; }\n" +
 	"#tiddlersBar { padding: 1em 0.5em " + (isOldStyleTabs ? "1px" : "0") + " 0.5em; }\n" +
 	".tabUnselected .tabButton, .tabSelected .tabButton { padding: 0 2px 0 2px; margin: 0 0 0 4px; }\n" +
-	".tiddler, .tabContents { border: 1px [[ColorPalette::TertiaryPale]] solid; }\n" +
+	".tiddler, .tabContents { border: 1px [[ColorPalette::" + (isOldStyleTabs ? "TertiaryPale" : "TertiaryLight") + "]] solid; }\n" +
 	"/*}}}*/";
 store.addNotification("StyleSheetTiddlersBar", refreshStyles);
 
