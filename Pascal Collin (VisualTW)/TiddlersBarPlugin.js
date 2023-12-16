@@ -201,11 +201,11 @@ ensureVisible = function(e) { return 0 } // disable bottom scrolling (not useful
 
 config.shadowTiddlers.StyleSheetTiddlersBar =
 	"/*{{{*/\n" +
-	"#tiddlersBar .button {border:0}\n" +
-	"#tiddlersBar .tab {white-space:nowrap}\n" +
-	"#tiddlersBar {padding : 1em 0.5em 2px 0.5em}\n" +
-	".tabUnselected .tabButton, .tabSelected .tabButton {padding : 0 2px 0 2px; margin: 0 0 0 4px;}\n" +
-	".tiddler, .tabContents {border:1px [[ColorPalette::TertiaryPale]] solid;}\n" +
+	"#tiddlersBar .button { border: 0; }\n" +
+	"#tiddlersBar .tab { white-space: nowrap; }\n" +
+	"#tiddlersBar { padding: 1em 0.5em 2px 0.5em; }\n" +
+	".tabUnselected .tabButton, .tabSelected .tabButton { padding: 0 2px 0 2px; margin: 0 0 0 4px; }\n" +
+	".tiddler, .tabContents { border: 1px [[ColorPalette::TertiaryPale]] solid; }\n" +
 	"/*}}}*/";
 store.addNotification("StyleSheetTiddlersBar", refreshStyles);
 
