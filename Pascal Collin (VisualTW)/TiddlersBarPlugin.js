@@ -7,7 +7,7 @@
 |License        |[[BSD open source license|http://web.archive.org/web/20160707100158/http://visualtw.ouvaton.org/VisualTW.html#License]]|
 |~CoreVersion   |2.1.0|
 !Demo
-On [[homepage|http://visualtw.ouvaton.org/VisualTW.html]], open several tiddlers to use the tabs bar.
+On [[homepage|https://yakovl.github.io/VisualTW2/VisualTW2.html]], open several tiddlers to use the tabs bar.
 !Installation
 # Copy or import this tiddler (tagged as {{{systemConfig}}})
 # save and reload
