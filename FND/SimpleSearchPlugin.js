@@ -3,8 +3,7 @@
 |Description     |displays search results as a simple list of matching tiddlers|
 |Author          |Yakov Litvin|
 |Original Authors|FND|
-|Version         |0.4.2|
-|Status          |stable|
+|Version         |0.4.3|
 |Source          |https://github.com/YakovL/TiddlyWiki_Extensions/blob/master/FND/SimpleSearchPlugin.js|
 |Original Source |http://devpad.tiddlyspot.com/#SimpleSearchPlugin|
 |License         |[[Creative Commons Attribution-ShareAlike 3.0 License|http://creativecommons.org/licenses/by-sa/3.0/]]|
@@ -65,7 +64,10 @@ config.extensions.SimpleSearchPlugin = {
 		} else {
 			msg += "''" + config.macros.search.failureMsg.format([query]) + "''"; // XXX: do not use bold here!?
 		}
-		createTiddlyButton(el, this.btnCloseLabel, this.btnCloseTooltip, config.extensions.SimpleSearchPlugin.closeResults, "button", this.btnCloseId);
+		var isCloseIconAvailable = window.tw && tw.assets && tw.assets.icons.closeSvg;
+		var btn = createTiddlyButton(el, isCloseIconAvailable ? "" : this.btnCloseLabel, this.btnCloseTooltip,
+			config.extensions.SimpleSearchPlugin.closeResults, "button", this.btnCloseId);
+		if(isCloseIconAvailable) btn.innerHTML = tw.assets.icons.closeSvg;
 		wikify(msg, el);
 		if(matches.length > 0) { // XXX: redundant!?
 			createTiddlyButton(el, this.btnOpenLabel, this.btnOpenTooltip, config.extensions.SimpleSearchPlugin.openAll, "button", this.btnOpenId);
@@ -100,8 +102,8 @@ config.shadowTiddlers.StyleSheetSimpleSearch = "/*{{{*/\n" +
 	"\tpadding-left: 1.5em;\n" +
 	"}\n\n" +
 	"#" + config.extensions.SimpleSearchPlugin.containerId + " .button {\n" +
-	"\tdisplay: block;\n" +
-	"\tborder-color: [[ColorPalette::TertiaryDark]];\n" +
+	"\tdisplay: flex;\n" +
+	"\tborder: none;\n" +
 	"\tpadding: 5px;\n" +
 	"\tbackground-color: [[ColorPalette::TertiaryLight]];\n" +
 	"}\n\n" +
