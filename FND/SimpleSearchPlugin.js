@@ -18,6 +18,9 @@
 * added tag matching
 !!v0.4.2 (2022-12-02, forked by Yakov Litvin)
 * added recalculating styles on ColorPalette change (including dark mode)
+!!v0.4.3 (2024-12-28)
+* used close icon from the core
+* removed dark background and bleached buttons in the results panel
 !To Do
 * tag matching optional
 * animations for container creation and removal
@@ -91,7 +94,6 @@ config.shadowTiddlers.StyleSheetSimpleSearch = "/*{{{*/\n" +
 	"#" + config.extensions.SimpleSearchPlugin.containerId + " {\n" +
 	"\toverflow: auto;\n" +
 	"\tpadding: 5px 1em 10px;\n" +
-	"\tbackground-color: [[ColorPalette::TertiaryPale]];\n" +
 	"}\n\n" +
 	"#" + config.extensions.SimpleSearchPlugin.containerId + " h1 {\n" +
 	"\tmargin-top: 0;\n" +
@@ -105,7 +107,7 @@ config.shadowTiddlers.StyleSheetSimpleSearch = "/*{{{*/\n" +
 	"\tdisplay: flex;\n" +
 	"\tborder: none;\n" +
 	"\tpadding: 5px;\n" +
-	"\tbackground-color: [[ColorPalette::TertiaryLight]];\n" +
+	"\tbackground-color: [[ColorPalette::TertiaryPale]];\n" +
 	"}\n\n" +
 	"#" + config.extensions.SimpleSearchPlugin.containerId + " .button:hover {\n" +
 	"\tborder-color: [[ColorPalette::SecondaryMid]];\n" +
